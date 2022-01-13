@@ -57,6 +57,8 @@ if [ STATE == "up" ]; then
   VXLANIF="${NPFX}lan${BRID}"
   BRIDGEIF="${NPFX}br${BRID}"
   
+  echo "creating new bridge interface $BRIDGEIF"
+  
   # create the vxlan interface
   ip link add $VXLANIF type vxlan id $BRID remote $REMOTEADDR dstport $PORT 
 
@@ -88,6 +90,8 @@ else
   BRID=$(echo $INTERFACE | egrep -o "[0-9]+")
   VXLANIF="${NPFX}lan${BRID}"
   BRIDGEIF="${NPFX}br${BRID}"
+  
+  echo "removing bridge interface $BRIDGEIF"
   
   # delete interfaces
   ip link set down $VXLANIF
