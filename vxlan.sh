@@ -52,7 +52,7 @@ while [[ $# -gt 0 ]]; do
 done
 
 if [ ! $DOWN ]; then
-  BRID=$( ip link show | grep "br[0-9]+:" | wc -l )
+  BRID=$( ip link show | egrep "${NPFX}br[0-9]+:" | wc -l )
   VXLANIF="${NPFX}lan${BRID}"
   BRIDGEIF="${NPFX}br${BRID}"
   
