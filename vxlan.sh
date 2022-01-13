@@ -26,7 +26,7 @@ while [[ $# -gt 0 ]]; do
   case $1 in
     -up)
       REMOTEADDR="$2"
-      shift
+      shift 2
       ;;
     -down)
       DOWN=$2
