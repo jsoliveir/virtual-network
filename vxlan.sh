@@ -80,10 +80,10 @@ if [ ! $DOWN ]; then
   ip link set up $BRIDGEIF
   
   # show the interface details
-  echo "new routes:"
-  ip route show | grep "$BRIDGEIF"
-  echo "new interfaces:"
-  ip addr show | grep "$BRIDGEIF:"
+  echo "routing table:"
+  ip addr show
+  echo "network addresses:"
+  ip route show
   
 else
   # find bridge interface
