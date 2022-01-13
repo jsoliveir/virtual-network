@@ -15,6 +15,8 @@
 # vxlan -down 192.168.0.1 
 # vxlan -down vxbr0 
 
+set -e
+
 NPFX=vx
 PORT=4789
 NETADDR=10.0.0.1/24
