@@ -16,7 +16,6 @@
 # vxlan -down vxbr0 
 
 NPFX=vx
-STATE=up
 PORT=4789
 NETADDR=10.0.0.1/24
 REMOTEADDR=127.0.0.1
@@ -52,7 +51,7 @@ while [[ $# -gt 0 ]]; do
   esac
 done
 
-if [ STATE == "up" ]; then
+if [ ! $DOWN ]; then
   BRID=$( ip link show | grep "br[0-9]+:" | wc -l )
   VXLANIF="${NPFX}lan${BRID}"
   BRIDGEIF="${NPFX}br${BRID}"
